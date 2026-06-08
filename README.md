@@ -152,7 +152,7 @@ sdcheck/
 - [x] Capacity spot-check
 - [x] Longitudinal history tracking
 - [x] Health score (0–100)
-- [ ] GUI with live speed graph
+- [X] GUI with live speed graph
 - [ ] PDF report export
 - [ ] Hardware version (Raspberry Pi + OLED display)
 
