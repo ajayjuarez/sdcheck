@@ -20,7 +20,7 @@ def get_removable_drives():
         # Skip optical drives and virtual filesystems
         if not p.mountpoint:
             continue
-        if p.fstype in ("", "devfs", "autofs", "squashfs"):
+        if p.fstype in ("", "devfs", "autofs", "squashfs", "hfs"):
             continue
 
         # Platform-specific removable detection

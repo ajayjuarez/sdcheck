@@ -38,14 +38,18 @@ def calculate(write_result, integrity_pass, cap_result, history_runs=None):
 
     # --- Write stability (30 pts) ---
     stability = write_result["stability"]
-    if stability >= 90:
+    if stability >= 96:
         stability_pts = 30
+    elif stability >= 92:
+        stability_pts = 26
+    elif stability >= 85:
+        stability_pts = 20
     elif stability >= 75:
-        stability_pts = 22
-    elif stability >= 60:
         stability_pts = 14
+    elif stability >= 60:
+        stability_pts = 8
     else:
-        stability_pts = 5
+        stability_pts = 3
         flags.append(f"Write stability is low ({stability}%)")
     breakdown["write_stability"] = stability_pts
 
@@ -73,10 +77,13 @@ def calculate(write_result, integrity_pass, cap_result, history_runs=None):
         if speed_drop_pct > 50:
             speed_pts = 5
             flags.append(f"Large speed drop within test ({speed_drop_pct:.0f}% below avg at worst)")
-        elif speed_drop_pct > 30:
-            speed_pts = 14
-        elif speed_drop_pct > 15:
-            speed_pts = 20
+        elif speed_drop_pct > 35:
+            speed_pts = 10
+            flags.append(f"Noticeable speed drop during test ({speed_drop_pct:.0f}%)")
+        elif speed_drop_pct > 20:
+            speed_pts = 16
+        elif speed_drop_pct > 10:
+            speed_pts = 21
         else:
             speed_pts = 25
     breakdown["write_speed"] = speed_pts

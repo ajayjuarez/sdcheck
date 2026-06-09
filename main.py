@@ -12,6 +12,7 @@ from core.read_test import read_test
 from core.capacity import capacity_test
 from core.history import log_result, analyze, print_history, _load, _card_id
 from core.score import calculate, print_score
+from core.report import generate as generate_report
 
 
 def eject(drive):
